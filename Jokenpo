@@ -1,0 +1,43 @@
+import random
+
+def jogar():
+
+    pontos = 0
+    pontos_pc = 0
+
+    while True:
+
+        #Define a escolha do computador
+        escolhas = ["pedra", "papel", "tesoura"]
+        numero_aleatorio = random.randint(0, 2)
+        escolha_pc = escolhas[numero_aleatorio]
+        escolha_jogador = input("Escolha entre PEDRA / PAPEL / TESOURA ou SAIR para sair do jogo: ").lower()
+
+        if escolha_jogador == "sair":
+            break
+        if escolha_jogador not in escolhas:
+            continue
+
+        elif escolha_jogador == "pedra" and escolha_pc == "tesoura":
+            pontos += 1
+            print(f"Você ganhou! Você está com {pontos} pontos")
+
+        elif escolha_jogador == "papel" and escolha_pc == "pedra":
+            pontos += 1
+            print(f"Você ganhou! Você está com {pontos} pontos")
+
+        elif escolha_jogador == "tesoura" and escolha_pc == "papel":
+            pontos += 1
+            print(f"Você ganhou! Você está com {pontos} pontos")
+
+        else:
+            pontos_pc += 1
+            print(f"Você perdeu... O computador está com {pontos_pc} pontos")
+
+    print("Fim de jogo!")
+    print(f"Você fez {pontos} pontos")
+    print(f"O Computador fez {pontos_pc} pontos")
+
+
+if(__name__ == "__main__"):
+    jogar()
